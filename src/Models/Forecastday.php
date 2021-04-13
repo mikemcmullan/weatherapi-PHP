@@ -40,19 +40,27 @@ class Forecastday implements JsonSerializable
     public $astro;
 
     /**
+     * @todo Write general description for this property
+     * @var \WeatherAPILib\Models\Hour[]|null $hour public property
+     */
+    public $hour;
+
+    /**
      * Constructor to set initial or default values of member properties
      * @param string  $date      Initialization value for $this->date
      * @param integer $dateEpoch Initialization value for $this->dateEpoch
      * @param Day     $day       Initialization value for $this->day
      * @param Astro   $astro     Initialization value for $this->astro
+     * @param array   $hour      Initialization value for $this->hour
      */
     public function __construct()
     {
-        if (4 == func_num_args()) {
+        if (5 == func_num_args()) {
             $this->date      = func_get_arg(0);
             $this->dateEpoch = func_get_arg(1);
             $this->day       = func_get_arg(2);
             $this->astro     = func_get_arg(3);
+            $this->hour      = func_get_arg(4);
         }
     }
 
@@ -67,6 +75,7 @@ class Forecastday implements JsonSerializable
         $json['date_epoch'] = $this->dateEpoch;
         $json['day']        = $this->day;
         $json['astro']      = $this->astro;
+        $json['hour']       = $this->hour;
 
         return $json;
     }
