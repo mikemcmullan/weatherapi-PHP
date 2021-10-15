@@ -152,7 +152,8 @@ class APIsController extends BaseController
         $dt = null,
         $unixdt = null,
         $hour = null,
-        $lang = null
+        $lang = null,
+        $alerts = null
     ) {
 
         //prepare query string for API call
@@ -166,6 +167,7 @@ class APIsController extends BaseController
             'unixdt' => $unixdt,
             'hour'   => $hour,
             'lang'   => $lang,
+            'alerts' => $alerts ? 'yes' : 'no',
             'key' => Configuration::$key,
         ));
 

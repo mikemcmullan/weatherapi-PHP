@@ -171,6 +171,18 @@ class Hour implements JsonSerializable
     public $gustKph;
 
     /**
+     * @maps dewpoint_c
+     * @var double|null $dewpointC public property
+     */
+    public $dewpointC;
+
+    /**
+     * @maps dewpoint_f
+     * @var double|null $dewpointF public property
+     */
+    public $dewpointF;
+
+    /**
      * Constructor to set initial or default values of member properties
      * @param integer   $timeEpoch  Initialization value for $this->timeEpoch
      * @param string    $time       Initialization value for $this->time
@@ -195,6 +207,8 @@ class Hour implements JsonSerializable
      * @param double    $uv         Initialization value for $this->uv
      * @param double    $gustMph    Initialization value for $this->gustMph
      * @param double    $gustKph    Initialization value for $this->gustKph
+     * @param double    $dewpointC  Initialization value for $this->dewpointC
+     * @param double    $dewpointF  Initialization value for $this->dewpointF
      */
     public function __construct()
     {
@@ -222,6 +236,8 @@ class Hour implements JsonSerializable
             $this->uv         = func_get_arg(20);
             $this->gustMph    = func_get_arg(21);
             $this->gustKph    = func_get_arg(22);
+            $this->dewpointC  = func_get_arg(23);
+            $this->dewpointF  = func_get_arg(24);
         }
     }
 
@@ -255,6 +271,8 @@ class Hour implements JsonSerializable
         $json['uv']          = $this->uv;
         $json['gust_mph']    = $this->gustMph;
         $json['gust_kph']    = $this->gustKph;
+        $json['dewpoint_c']  = $this->dewpointC;
+        $json['dewpoint_f']  = $this->dewpointF;
 
         return $json;
     }

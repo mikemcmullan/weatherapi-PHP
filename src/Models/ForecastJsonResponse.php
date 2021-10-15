@@ -33,10 +33,17 @@ class ForecastJsonResponse implements JsonSerializable
     public $forecast;
 
     /**
+     * @todo Write general description for this property
+     * @var \WeatherAPILib\Models\Alerts $alerts public property
+     */
+    public $alerts;
+
+    /**
      * Constructor to set initial or default values of member properties
      * @param Location $location Initialization value for $this->location
      * @param Current  $current  Initialization value for $this->current
      * @param Forecast $forecast Initialization value for $this->forecast
+     * @param Alerts   $alerts Initialization value for $this->alerts
      */
     public function __construct()
     {
@@ -44,6 +51,7 @@ class ForecastJsonResponse implements JsonSerializable
             $this->location = func_get_arg(0);
             $this->current  = func_get_arg(1);
             $this->forecast = func_get_arg(2);
+            $this->alerts = func_get_arg(3);
         }
     }
 
@@ -57,6 +65,7 @@ class ForecastJsonResponse implements JsonSerializable
         $json['location'] = $this->location;
         $json['current']  = $this->current;
         $json['forecast'] = $this->forecast;
+        $json['alerts']   = $this->alerts;
 
         return $json;
     }
